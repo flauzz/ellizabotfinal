@@ -5,11 +5,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 openai_api_key = os.environ.get("OPENAI_API_KEY")
+
 flow = load_flow_from_json("elizabot.json")
 
 
@@ -62,20 +59,19 @@ def main():
         )
 
         prompt = st.chat_input(
-            "Oi, Sou a Eliza Bot, sua psicóloga virtual. Como você está se sentindo hoje?"
+            ", Sou a Eliza Bot, sua psicóloga virtual. Como você está se sentindo hoje?"
         )
 
         if prompt:
             st.session_state.messages.append({
                 "role": "user",
                 "content": prompt,
-                "avatar": "icons/user.png"
             })
 
-            with st.chat_message("user", avatar="icons/user.png"):
+            with st.chat_message("user"):
                 st.write(prompt)
 
-            with st.chat_message("assistant", avatar="icons/assistant.png"):
+            with st.chat_message("assistant"):
                 message_placeholder = st.empty()
                 with st.spinner(text="Digitando..."):
                     user_input = {"text": prompt}
@@ -86,9 +82,8 @@ def main():
             st.session_state.messages.append({
                 "role": "assistant",
                 "content": answer,
-                "avatar": "icons/assistant.png",
             })
 
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
