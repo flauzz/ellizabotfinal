@@ -1,2 +1,1 @@
-# ellizabotfinal
-Projeto eliza bot i2a2
+# Eliza Bot
